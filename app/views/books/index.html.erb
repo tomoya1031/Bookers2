@@ -1,3 +1,8 @@
+<% if flash[:notice] %>
+	<div class="flash">
+	     <%= flash[:notice] %>
+	</div>
+<% end %>
 <% if @book.errors.any? %>
     <div class="error">
     	<h4 class="error-title"><%= @book.errors.count %>errors prohibited this book from being saved:</h4>
@@ -11,11 +16,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3">
-			<div>
+		 	<%= render 'books/sidebar', book: @book %>
+<!-- 			<div>
 				<h2>User info</h2>
 			</div>
 			<div>
-				<%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+				<%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
 			</div>
 			<table>
 				<tbody>
@@ -33,8 +39,9 @@
 					<%= link_to edit_user_path(current_user.id) , class: "btn btn-success" do %>
 					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 					<% end %>
-			</div>
-			<h2>New book</h2>
+			</div> -->
+
+			<!-- <h2>New book</h2>
 			<%= form_for(@book) do |f| %>
 			    <div class="box field">
 			    	<div>
@@ -54,7 +61,7 @@
 			    </div>
 			    <%= f.submit 'Create Book' ,class:"submit" %>
 			<% end %>
-		</div>
+		</div> -->
 		<div class="col-xs-9">
 			<h1>Books</h1>
 			<table>
