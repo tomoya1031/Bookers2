@@ -1,0 +1,18 @@
+<h1>User info</h1>
+<%= form_for(@user) do |f| %>
+    <div class="box">
+    	<div>
+    		<%= f.label :title, "Name" %>
+    		<%= f.text_field :name %>
+    	</div>
+    	<div>
+    		<%= f.label :title, "Image" %>
+    		<%= f.attachment_field :profile_image %>
+    	</div>
+		<div>
+		    <%= f.label :title, "Introduction" %>
+		    <%= f.text_area :introduction %>
+		</div>
+	</div>
+	<%= f.submit 'Update Book' ,class: "btn btn-info" %>
+<% end %>

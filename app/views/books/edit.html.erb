@@ -1,0 +1,18 @@
+<h1>Editing Book</h1>
+<%= form_for(@book) do |f| %>
+    <div class="box">
+    	<div>
+    		<%= f.label :title, "Titele" %>
+    	</div>
+    	<diV>
+    		<%= f.text_field :title %>
+    	</div>
+		<div>
+		    <%= f.label :title, "Titele" %>
+		</div>
+		<diV>
+		    <%= f.text_area :body %>
+		</div>
+	</div>
+	<%= f.submit 'Update Book' ,class: "btn btn-info" %>
+<% end %>
