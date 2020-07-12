@@ -58,7 +58,7 @@
 }
 .header-aitem{
 	margin: 0 20px;
-	float: right;
+	float: left;
 	list-style: none;
 }
 .header-aitem-a{
@@ -108,7 +108,7 @@ footer{
 	padding: 8px 20px 8px 0;
 	border-top: 1px solid #ddd;
 }
-th{
+td{
 	text-align: left;
 }
 .list-back:hover{
@@ -144,3 +144,27 @@ th{
 	color: #555555;
 	background-color: #CC0000;
 }
+.action{
+	float: left;
+	margin: 0 3px;
+	font-size: 13px;
+}
+.edit-wid{
+	width: 50%;
+	margin-right: auto;
+	margin-left: auto;
+}
+.edit-box{
+	margin: 10px 0;
+}
+.error{
+	font-size: 13px;
+	color: red;
+}
+.error-box{
+	padding-left: 70px;
+}
+
+
+
+

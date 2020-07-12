@@ -70,3 +70,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 
 gem 'kaminari','~> 1.2.1'
+
+group :test do
+  gem 'capybara', '>= 2.15'
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
+end

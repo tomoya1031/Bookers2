@@ -16,15 +16,9 @@
         <ul class="header-list">
           <% if user_signed_in? %>
               <li class="header-aitem">
-                <%= link_to destroy_user_session_path, method: :delete,class: "aitem"  do %>
-                <span class="glyphicon glyphicon-log-out header-aitem-a" aria-hidden="true"></span>
-                <p class="header-aitem-a">logout</p>
-                <% end %>
-              </li>
-              <li class="header-aitem">
-                <%= link_to books_path,class: "aitem" do %>
-                <span class="glyphicon glyphicon-book header-aitem-a" aria-hidden="true"></span>
-                <p class="header-aitem-a">Books</p>
+                <%= link_to user_path(current_user.id),class: "aitem" do %>
+                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                <p class="header-aitem-a">Home</p>
                 <% end %>
               </li>
               <li class="header-aitem">
@@ -34,16 +28,31 @@
                 <% end %>
               </li>
               <li class="header-aitem">
-                <%= link_to user_path(current_user.id),class: "aitem" do %>
+                <%= link_to books_path,class: "aitem" do %>
+                <span class="glyphicon glyphicon-book header-aitem-a" aria-hidden="true"></span>
+                <p class="header-aitem-a">Books</p>
+                <% end %>
+              </li>
+              <li class="header-aitem">
+                <%= link_to destroy_user_session_path, method: :delete,class: "aitem"  do %>
+                <span class="glyphicon glyphicon-log-out header-aitem-a" aria-hidden="true"></span>
+                <p class="header-aitem-a">logout</p>
+                <% end %>
+              </li>
+
+
+
+          <% else %>
+              <li class="header-aitem">
+                <%= link_to "/",class: "aitem" do %>
                 <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                 <p class="header-aitem-a">Home</p>
                 <% end %>
               </li>
-          <% else %>
               <li class="header-aitem">
-                <%= link_to new_user_session_path,class: "aitem" do %>
-                <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-                <p class="header-aitem-a">login</p>
+                <%= link_to home_about_path,class: "aitem" do %>
+                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                <p class="header-aitem-a">About</p>
                 <% end %>
               </li>
               <li class="header-aitem">
@@ -53,15 +62,9 @@
                 <% end %>
               </li>
               <li class="header-aitem">
-                <%= link_to homes_about_path,class: "aitem" do %>
-                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
-                <p class="header-aitem-a">About</p>
-                <% end %>
-              </li>
-              <li class="header-aitem">
-                <%= link_to "/",class: "aitem" do %>
-                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                <p class="header-aitem-a">Home</p>
+                <%= link_to new_user_session_path,class: "aitem" do %>
+                <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                <p class="header-aitem-a">login</p>
                 <% end %>
               </li>
           <% end %>

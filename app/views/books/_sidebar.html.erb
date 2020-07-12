@@ -8,19 +8,19 @@
 			<table>
 				<tbody>
 					<tr>
-						<th class="list">name</th>
-						<th class="list"><%= current_user.name %></th>
+						<td class="list">name</td>
+						<td class="list"><%= current_user.name %></td>
 					</tr>
 					<tr>
-						<th class="list">introduction</th>
-						<th class="list"><%= current_user.introduction %></th>
+						<td class="list">introduction</td>
+						<td class="list"><%= current_user.introduction %></td>
 					</tr>
 				</tbody>
 			</table>
 			<div classa="btn btn-info">
-					<%= link_to edit_user_path(current_user.id) , class: "btn btn-default w-100" do %>
+				<%= link_to edit_user_path(current_user.id) , class: "btn btn-default w-100" do %>
 					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-					<% end %>
+				<% end %>
 			</div>
 			<h2>New book</h2>
 			<%= form_for(book) do |f| %>
@@ -40,7 +40,7 @@
 			    		<%= f.text_area :body ,class:"w-100"%>
 			    	</div>
 			    </div>
-			    <%= f.submit 'Create Book' ,class:"btn btn-primary w-100 border" %>
+			    <%= f.submit 'Create Book' ,class: "btn btn-primary w-100 border" %>
 			<% end %>
 		</div>
         <div class="col-xs-9">

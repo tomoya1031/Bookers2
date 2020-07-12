@@ -1,84 +1,86 @@
 <div class="top">
-<%= render 'books/sidebar', book: @new_book, current_use: @book.user_id %>
-<!-- <div class="container">
-	<div class="row">
-		<div class="col-xs-3"> -->
-		    
-<!-- 			<div>
-				<h2>User info</h2>
-			</div>
-			<div>
-				<%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-			</div>
-			<table>
-				<tbody>
-					<tr>
-						<th>name</th>
-						<th><%= @book.user.name %></th>
-					</tr>
-					<tr>
-						<th>introduction</th>
-						<th><%= @book.user.introduction %></th>
-					</tr>
-				</tbody>
-			</table>
-			<div classa="btn btn-info">
-					<%= link_to edit_user_path(current_user.id) , class: "btn btn-success" do %>
-					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+    <% if flash[:notice] %>
+	    <div>
+	        <%= flash[:notice] %>
+	    </div>
+    <% end %>
+<!-- 　<%= render 'books/sidebar', book: @new_book, current_use: @book.user_id %> -->
+
+    <div class="container">
+	    <div class="row">
+		    <div class="col-xs-3">
+			    <div>
+				    <h2>User info</h2>
+			    </div>
+			    <div>
+			    	<%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+			    </div>
+			    <table>
+				    <tbody>
+					    <tr>
+						    <td class="list">name</td>
+						    <td class="list"><%= @book.user.name %></td>
+					    </tr>
+					    <tr>
+						    <td class="list">introduction</td>
+						    <td class="list"><%= @book.user.introduction %></td>
+					    </tr>
+				    </tbody>
+			    </table>
+			    <div classa="btn btn-info">
+					<%= link_to edit_user_path(current_user.id) , class: "btn btn-default w-100" do %>
+					    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 					<% end %>
-			</div>
-			<h2>New book</h2>
-			<%= form_for(@new_book, url: {controller: 'books', action: 'create'}) do |f| %>
-			    <div class="box field">
-			    	<div>
-			    		<%= f.label :title, "Titele" %>
-			    	</div>
-			    	<div>
-			    		<%= f.text_field :title %>
-			    	</div>
 			    </div>
-			    <div class="box">
-			    	<div>
-			    		<%= f.label :title, "Opinion" %>
-			    	</div>
-			    	<div>
-			    		<%= f.text_area :body %>
-			    	</div>
-			    </div>
-			    <%= f.submit 'Create Book' ,class:"submit" %>
-			<% end %>
-		</div> -->
-<!-- 		<div class="col-xs-9"> -->
+			    <h2>New book</h2>
+			    <%= form_for(@new_book) do |f| %>
+			        <div class="box field">
+			    	    <div>
+			    		    <%= f.label :title, "Titele" %>
+			    	    </div>
+			    	    <div>
+			    		    <%= f.text_field :title,class: "w-100" %>
+			    	    </div>
+			        </div>
+			        <div class="box">
+			    	    <div>
+			    	    	<%= f.label :title, "Opinion" %>
+			    	    </div>
+			    	    <div>
+			    	    	<%= f.text_area :body ,class: "w-100" %>
+			    	    </div>
+			        </div>
+			        <%= f.submit 'Create Book' ,class: "btn btn-primary w-100 border" %>
+			    <% end %>
+		    </div>
+		    <div class="col-xs-9">
 
-<h1>Book detail</h1>
-<table>
-	<tbody>
-		<tr class="list-back">
-			<td class="list">
-				<div>
-				<%= link_to user_path(@book.user.id),class: "list-aitem" do %>
-				<%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg",class: "show-book" %>
-					<%= @book.user.name %>
-				<% end %>
-				<div>
-			</td>
-			<td class="list show-book-list"><%= @book.title %></td>
-			<td class="list show-book-list"><%= @book.body %></td>
-			<% if @book.user == current_user %>
-			    <td class="list show-book-list show-book-edit">
-			    	<%= link_to 'Edit', edit_book_path(@book), class: "btn btn-success" %>
-			    </td>
-			    <td class="list show-book-list">
-			        <%= link_to 'Destroy', book_path(@book), method: :delete, data: {confirm:"Are you sure?"} ,class: " btn show-book-destroy" %>
-			    </td>
-			<% end %>
-			</td>
-		</tr>
-	</tbody>
-</table>
+                <h1>Book detail</h1>
+                <table>
+	                <tbody>
+	                    <tr class="list-back">
+		                    <td class="list">
+				                <div>
+				                    <%= link_to user_path(@book.user.id),class: "list-aitem" do %>
+				                        <%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg",class: "show-book" %>
+					                     <%= @book.user.name %>
+				                    <% end %>
+				                <div>
+			                </td>
+			                <td class="list show-book-list"><%= @book.title %></td>
+			                <td class="list show-book-list"><%= @book.body %></td>
+			                <% if @book.user == current_user %>
+			                    <td class="list show-book-list show-book-edit">
+			                        <%= link_to 'Edit', edit_book_path(@book), class: "btn btn-success" %>
+			                    </td>
+			                    <td class="list show-book-list">
+			                        <%= link_to 'Destroy', book_path(@book), method: :delete, data: {confirm:"Are you sure?"} ,class: " btn show-book-destroy" %>
+			                    </td>
+			                <% end %>
+		                </tr>
+	                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-</div>
-
-
