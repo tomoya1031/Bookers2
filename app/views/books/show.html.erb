@@ -1,7 +1,9 @@
-<div class="container">
+<div class="top">
+<%= render 'books/sidebar', book: @new_book, current_use: @book.user_id %>
+<!-- <div class="container">
 	<div class="row">
-		<div class="col-xs-3">
-		    <%= render 'books/sidebar', book: @new_book %>
+		<div class="col-xs-3"> -->
+		    
 <!-- 			<div>
 				<h2>User info</h2>
 			</div>
@@ -46,31 +48,37 @@
 			    <%= f.submit 'Create Book' ,class:"submit" %>
 			<% end %>
 		</div> -->
-		<div class="col-xs-9">
+<!-- 		<div class="col-xs-9"> -->
 
 <h1>Book detail</h1>
 <table>
 	<tbody>
-		<tr>
-			<td>
+		<tr class="list-back">
+			<td class="list">
 				<div>
-				<%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-				<%= link_to user_path(@book.user.id) do %>
+				<%= link_to user_path(@book.user.id),class: "list-aitem" do %>
+				<%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg",class: "show-book" %>
 					<%= @book.user.name %>
 				<% end %>
 				<div>
 			</td>
-			<td><%= @book.title %></td>
-			<td><%= @book.body %></td>
-			<td>
-			    <% if @book.user == current_user %>
-			        <%= link_to 'Edit', edit_book_path(@book), class: "btn btn-info" %>
-			        <%= link_to 'Destroy', book_path(@book), method: :delete, data: {confirm:"Are you sure?"} ,class: "btn btn-info" %>
-			    <% end %>
+			<td class="list show-book-list"><%= @book.title %></td>
+			<td class="list show-book-list"><%= @book.body %></td>
+			<% if @book.user == current_user %>
+			    <td class="list show-book-list show-book-edit">
+			    	<%= link_to 'Edit', edit_book_path(@book), class: "btn btn-success" %>
+			    </td>
+			    <td class="list show-book-list">
+			        <%= link_to 'Destroy', book_path(@book), method: :delete, data: {confirm:"Are you sure?"} ,class: " btn show-book-destroy" %>
+			    </td>
+			<% end %>
 			</td>
 		</tr>
 	</tbody>
 </table>
 </div>
 </div>
+</div>
+</div>
+
 

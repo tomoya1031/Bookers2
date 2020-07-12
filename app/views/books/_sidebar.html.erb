@@ -1,44 +1,46 @@
-<div>
-				<h2>User info</h2>
-			</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<div><h2>User info</h2></div>
 			<div>
-				<%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+				<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
 			</div>
 			<table>
 				<tbody>
 					<tr>
-						<th>name</th>
-						<th><%= current_user.name %></th>
+						<th class="list">name</th>
+						<th class="list"><%= current_user.name %></th>
 					</tr>
 					<tr>
-						<th>introduction</th>
-						<th><%= current_user.introduction %></th>
+						<th class="list">introduction</th>
+						<th class="list"><%= current_user.introduction %></th>
 					</tr>
 				</tbody>
 			</table>
 			<div classa="btn btn-info">
-					<%= link_to edit_user_path(current_user.id) , class: "btn btn-success" do %>
+					<%= link_to edit_user_path(current_user.id) , class: "btn btn-default w-100" do %>
 					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 					<% end %>
 			</div>
 			<h2>New book</h2>
 			<%= form_for(book) do |f| %>
-			    <div class="box field">
+			    <div>
 			    	<div>
 			    		<%= f.label :title, "Titele" %>
 			    	</div>
 			    	<div>
-			    		<%= f.text_field :title %>
+			    		<%= f.text_field :title ,class:"w-100"%>
 			    	</div>
 			    </div>
-			    <div class="box">
+			    <div>
 			    	<div>
 			    		<%= f.label :title, "Opinion" %>
 			    	</div>
 			    	<div>
-			    		<%= f.text_area :body %>
+			    		<%= f.text_area :body ,class:"w-100"%>
 			    	</div>
 			    </div>
-			    <%= f.submit 'Create Book' ,class:"submit" %>
+			    <%= f.submit 'Create Book' ,class:"btn btn-primary w-100 border" %>
 			<% end %>
 		</div>
+        <div class="col-xs-9">

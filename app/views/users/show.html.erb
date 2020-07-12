@@ -1,38 +1,45 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-3">
+<div class="top">
+	<% if flash[:notice] %>
+	     <div class="flash">
+	     	<%= flash[:notice] %>
+	     </div>
+	<% end %>
 <!-- 			<%= render 'books/sidebar', book: @book %> -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-3">
 			<div>
 				<h2>User info</h2>
 			</div>
-			<div>
-				<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+			<div class="img-box">
+				<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
 			</div>
 			<table>
 				<tbody>
 					<tr>
-						<th>name</th>
-						<th><%= @user.name %></th>
+						<th class="list">name</th>
+						<th class="list"><%= @user.name %></th>
 					</tr>
 					<tr>
-						<th>introduction</th>
-						<th><%= @user.introduction %></th>
+						<th class="list">introduction</th>
+						<th class="list"><%= @user.introduction %></th>
 					</tr>
+
 				</tbody>
 			</table>
 			<div classa="btn btn-info">
-					<%= link_to edit_user_path(current_user.id) , class: "btn btn-success" do %>
+					<%= link_to edit_user_path(current_user.id) , class: "btn btn-default w-100" do %>
 					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 					<% end %>
 			</div>
 			<h2>New book</h2>
 			<%= form_for(@book) do |f| %>
-			    <div class="box field">
+			    <div>
 			    	<div>
 			    		<%= f.label :title, "Titele" %>
 			    	</div>
 			    	<div>
-			    		<%= f.text_field :title %>
+			    		<%= f.text_field :title ,class:"w-100"%>
 			    	</div>
 			    </div>
 			    <div class="box">
@@ -40,10 +47,10 @@
 			    		<%= f.label :title, "Opinion" %>
 			    	</div>
 			    	<div>
-			    		<%= f.text_area :body %>
+			    		<%= f.text_area :body ,class:"w-100"%>
 			    	</div>
 			    </div>
-			    <%= f.submit 'Create Book' ,class:"submit" %>
+			    <%= f.submit 'Create Book' ,class:"btn btn-primary w-100 border" %>
 			<% end %>
 		</div>
 		<div class="col-xs-9">
@@ -52,27 +59,28 @@
 <table>
 	<thead>
 		<tr>
-			<th></th>
-			<th>Title</th>
-			<th>Opinion</th>
+			<th class="title"></th>
+			<th class="title">Title</th>
+			<th class="title">Opinion</th>
 		</tr>
 	</thead>
 	<tbody> 
 		<% @books.each do |book| %>
-		    <tr>
-		    	<td>
-		    		<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-		    		<%= @user.name %>
+		    <tr class="list-back">
+		    	<td class="list">
+		    		<%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %>
 		    	</td>
-		    	<td>
-		    		<%= link_to book_path(book.id) do %>
+		    	<td class="list">
+		    		<%= link_to book_path(book.id),class: "list-aitem" do %>
 						<%= book.title %>
 					<% end %>
 		    	</td>
-		    	<td><%= book.body %></td>
+		    	<td class="list"><%= book.body %></td>
 		    </tr>
 		<% end %>
 	</tbody>
 </table>
+</div>
+</div>
 </div>
 </div>

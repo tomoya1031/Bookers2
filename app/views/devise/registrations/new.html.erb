@@ -1,3 +1,4 @@
+<div class="top">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -27,8 +28,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", class: "btn btn-info w-80px" %>
+    <%= f.submit "Sign up", class: "btn btn-success w-80px" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>

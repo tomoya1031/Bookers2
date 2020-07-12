@@ -1,3 +1,5 @@
+
+<div class="top">
 <% if flash[:notice] %>
 	<div class="flash">
 	     <%= flash[:notice] %>
@@ -13,10 +15,11 @@
         </ul>
     </div>
 <% end %>
-<div class="container">
+<%= render 'books/sidebar', book: @book %>
+<!-- <div class="container">
 	<div class="row">
-		<div class="col-xs-3">
-		 	<%= render 'books/sidebar', book: @book %>
+		<div class="col-xs-3"> -->
+		 	
 <!-- 			<div>
 				<h2>User info</h2>
 			</div>
@@ -62,7 +65,7 @@
 			    <%= f.submit 'Create Book' ,class:"submit" %>
 			<% end %>
 		</div> -->
-		<div class="col-xs-9">
+<!-- 		<div class="col-xs-9"> -->
 			<h1>Books</h1>
 			<table>
 				<thead>
@@ -74,18 +77,23 @@
 				</thead>
 				<% @books.each do |book| %>
 				<tbody>
-					<tr>
-						<td><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></td>
-						<th>
-							<%= link_to book_path(book.id) do %>
+					<tr class="list-back">
+						<td class="list-imag">
+							<%= link_to user_path(book.user.id) do %>
+							<%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg"%>
+							<% end %>
+						</td>
+						<th class="list">
+							<%= link_to book_path(book.id),class: "list-aitem" do %>
 							<%= book.title %>
 							<% end %>
 						</th>
-						<th><%= book.body %></th>
+						<th class="list"><%= book.body %></th>
 					</tr>
 				</tbody>
 				<% end %>
 			</table>
 		</div>
 	</div>
+</div>
 </div>

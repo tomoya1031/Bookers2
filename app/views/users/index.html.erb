@@ -1,7 +1,8 @@
-<div class="container">
+<div class="top">
+<%= render 'books/sidebar', book: @book %>
+<!-- <div class="container">
 	<div class="row">
-		<div class="col-xs-3">
-			<%= render 'books/sidebar', book: @book %>
+		<div class="col-xs-3"> -->
 <!-- 			<div>
 				<h2>User info</h2>
 			</div>
@@ -46,10 +47,10 @@
 			    <%= f.submit 'Create Book' ,class:"submit" %>
 			<% end %>
 		</div> -->
-		<div class="col-xs-9">
+<!-- 		<div class="col-xs-9"> -->
 
-<h1>Users</h1>
-<table>
+            <h1>Users</h1>
+            <table>
 				<thead>
 					<tr>
 						<th>image</th>
@@ -59,17 +60,18 @@
 				</thead>
 				<% @users.each do |user| %>
 				<tbody>
-					<tr>
-						<td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></td>
-						<th>
+					<tr class="list-back">
+						<td class="list"><%= attachment_image_tag user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %></td>
+						<th class="list">
 							<%= user.name %>
 						</th>
-						<th><%= link_to "Show", user_path(user) ,class:"action" %></th>
+						<th class="list"><%= link_to "Show", user_path(user) ,class: "list-aitem" %></th>
 					</tr>
 				</tbody>
 				<% end %>
 			</table>
 
-</div>
-</div>
+            </div>
+        </div>
+    </div>
 </div>
