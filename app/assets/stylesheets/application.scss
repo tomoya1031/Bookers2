@@ -103,8 +103,6 @@ footer{
 	border-top: 1px solid #ddd;
 }
 .list-imag{
-	position: relative;
-	width: 130px;
 	padding: 8px 20px 8px 0;
 	border-top: 1px solid #ddd;
 }
@@ -124,10 +122,15 @@ td{
 .w-100{
 	width: 100% !important;
 }
+.new-tite{
+	padding-left: 15px;
+}
 .name{
 	display: block;
 }
-.title{
+th{
+	position: relative;
+	width: 300px;
 	border-bottom: 2px solid #ddd;
 	padding-bottom: 5px;
 }
