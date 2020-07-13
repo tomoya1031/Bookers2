@@ -1,15 +1,17 @@
-<div class="top">
-	<% if flash[:notice] %>
-	     <div class="flash">
-	     	<%= flash[:notice] %>
-	     </div>
-	<% end %>
-	<div class="top-box">
-		<h1>welcome to <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers   !!</h1>
-		<p><strong>In <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers,</strong></p>
-		<p>you can share and exchange your opinions , inpressions , and emotions</p>
-		<p>about various books!</p>
-		<%= link_to 'Log in', new_user_session_path, class: "btn btn-info w-500px btn-block" %>
-		<%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-success w-500px btn-block" %>
+<div class="container">
+	<div class="row">
+        <div class="top-message col-md-offset-3 col-md-6">
+	        <% if flash[:notice] %>
+	            <div class="flash">
+	     	        <%= flash[:notice] %>
+	            </div>
+	        <% end %>
+	        <h1>welcome to <span class="glyphicon glyphicon-book" aria-hidden="true"><strong>Bookers<strong>   !!</span></h1>
+	       	<p><strong>In <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers,</strong></p>
+	       	<p>you can share and exchange your opinions , inpressions , and emotions</p>
+	       	<p>about various books!</p>
+	       	<%= link_to 'Log in', new_user_session_path, class: "btn btn-info w-500px btn-block" %>
+	       	<%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-success w-500px btn-block" %>
+        </div>
     </div>
 </div>

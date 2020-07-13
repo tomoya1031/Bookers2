@@ -1,4 +1,4 @@
-<div class="top">
+<div class="container">
     <% if flash[:notice] %>
 	    <div class="flash">
 	        <%= flash[:notice] %>
@@ -17,34 +17,33 @@
 
 <%= render 'books/sidebar', book: @book %>
 
-			    <h1>Books</h1>
-			    <table>
-				    <thead>
-					    <tr>
-						    <th></th>
-						    <th>Title</th>
-						    <th>Opinion</th>
-					    </tr>
-				    </thead>
-				    <% @books.each do |book| %>
-				        <tbody>
-					        <tr class="list-back">
-						        <td class="list-imag">
-							        <%= link_to user_path(book.user.id) do %>
-							            <%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg"%>
-							        <% end %>
-						        </td>
-						        <td class="list">
-							        <%= link_to book_path(book.id),class: "list-aitem" do %>
-							            <%= book.title %>
-							        <% end %>
-						        </td>
-						        <td class="list"><%= book.body %></td>
-					        </tr>
-				        </tbody>
-				    <% end %>
-			    </table>
-		    </div>
-	    </div>
-    </div>
+			<h2>Books</h2>
+		    <table class="table table-hover">
+			    <thead>
+				    <tr>
+					    <th></th>
+					    <th>Title</th>
+					    <th>Opinion</th>
+				    </tr>
+			    </thead>
+			    <% @books.each do |book| %>
+			        <tbody>
+				        <tr>
+						    <td>
+						        <%= link_to user_path(book.user.id) do %>
+						            <%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg"%>
+						        <% end %>
+					        </td>
+					        <td>
+						        <%= link_to book_path(book.id),class: "list-aitem" do %>
+						            <%= book.title %>
+						        <% end %>
+					        </td>
+					        <td><%= book.body %></td>
+				        </tr>
+			        </tbody>
+			    <% end %>
+			</table>
+		</div>
+	</div>
 </div>

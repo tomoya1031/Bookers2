@@ -10,70 +10,74 @@
   </head>
 
   <body>
-     <div class="header">
-      <div class="header-box">
+     <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
         <p class="header-title">Bookers</p>
         <ul class="header-list">
           <% if user_signed_in? %>
-              <li class="header-aitem">
-                <%= link_to user_path(current_user.id),class: "aitem" do %>
+            <li class="header-aitem">
+              <%= link_to user_path(current_user.id),class: "aitem" do %>
                 <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                 <p class="header-aitem-a">Home</p>
-                <% end %>
-              </li>
-              <li class="header-aitem">
-                <%= link_to users_path,class: "aitem" do %>
+              <% end %>
+            </li>
+            <li class="header-aitem">
+              <%= link_to users_path,class: "aitem" do %>
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                 <p class="header-aitem-a">Users</p>
-                <% end %>
-              </li>
-              <li class="header-aitem">
-                <%= link_to books_path,class: "aitem" do %>
+              <% end %>
+            </li>
+            <li class="header-aitem">
+              <%= link_to books_path,class: "aitem" do %>
                 <span class="glyphicon glyphicon-book header-aitem-a" aria-hidden="true"></span>
                 <p class="header-aitem-a">Books</p>
-                <% end %>
-              </li>
-              <li class="header-aitem">
-                <%= link_to destroy_user_session_path, method: :delete,class: "aitem"  do %>
+              <% end %>
+            </li>
+            <li class="header-aitem">
+              <%= link_to destroy_user_session_path, method: :delete,class: "aitem"  do %>
                 <span class="glyphicon glyphicon-log-out header-aitem-a" aria-hidden="true"></span>
                 <p class="header-aitem-a">logout</p>
-                <% end %>
-              </li>
-
-
-
+              <% end %>
+            </li>
           <% else %>
-              <li class="header-aitem">
-                <%= link_to "/",class: "aitem" do %>
+            <li class="header-aitem">
+              <%= link_to "/",class: "aitem" do %>
                 <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                 <p class="header-aitem-a">Home</p>
-                <% end %>
-              </li>
-              <li class="header-aitem">
-                <%= link_to home_about_path,class: "aitem" do %>
+              <% end %>
+            </li>
+            <li class="header-aitem">
+              <%= link_to home_about_path,class: "aitem" do %>
                 <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
                 <p class="header-aitem-a">About</p>
-                <% end %>
-              </li>
-              <li class="header-aitem">
-                <%= link_to new_user_registration_path,class: "aitem" do %>
+              <% end %>
+            </li>
+            <li class="header-aitem">
+              <%= link_to new_user_registration_path,class: "aitem" do %>
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 <p class="header-aitem-a">sign up</p>
-                <% end %>
-              </li>
-              <li class="header-aitem">
-                <%= link_to new_user_session_path,class: "aitem" do %>
+              <% end %>
+            </li>
+            <li class="header-aitem">
+              <%= link_to new_user_session_path,class: "aitem" do %>
                 <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
                 <p class="header-aitem-a">login</p>
-                <% end %>
-              </li>
+              <% end %>
+            </li>
           <% end %>
         </ul>
       </div>
-     </div>
+     </nav>
+
     <%= yield %>
     <footer>
-       <p>CopyRight Infratop.inc</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-9">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

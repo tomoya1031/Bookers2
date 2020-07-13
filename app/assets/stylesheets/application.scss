@@ -21,25 +21,12 @@
  	padding: 0;
  	box-sizing: border-box;
  }
- a {
- 	color: #6c6b6b;
- }
-//  a:hover{
 
-// }
+body{
+	padding-top: 60px;
+}
 .flash{
 	color: green;
-}
-.header{
-	width: 100%;
-	background-color: #222;
-	color: white;
-	margin-bottom: 10px;
-	padding-bottom: 50px
-}
-.header-box{
-	width: 1100px;
-	margin: 0 auto;
 }
 .header-title{
 	font-size: 20px;
@@ -51,6 +38,9 @@
 	float: right;
 	margin-top: 15px;
 	text-decoration: none;
+}
+.aitem{
+	color: #6c6b6b;
 }
 .aitem:hover{
 	color:white;
@@ -64,21 +54,11 @@
 .header-aitem-a{
 	display: inline;
 }
-footer{
-	margin-top: 20px;
-	margin-left: 1350px;
-	display: block;
+.container{
+	margin: 0 auto;
+    padding: 0 15px;
+}
 
-}
-.top{
-	width: 1100px;
-	margin-right: auto;
-	margin-left: auto;
-}
-.top-box{
-	margin-left: 150px;
-
-}
 .w-500px{
 	width: 500px !important;
 	margin-left: 30px;
@@ -96,12 +76,6 @@ footer{
 .img-box{
 	margin-bottom: 10px;
 }
-.list{
-	position: relative;
-	width: 300px;
-	padding: 8px 20px 8px 0;
-	border-top: 1px solid #ddd;
-}
 .list-imag{
 	padding: 8px 20px 8px 0;
 	border-top: 1px solid #ddd;
@@ -109,12 +83,9 @@ footer{
 td{
 	text-align: left;
 }
-.list-back:hover{
-	background-color:#EEEEEE;
-	text-decoration: none;
-}
 .list-aitem:hover{
 	background-color:#000000;
+	color: #337ab7;
 }
 .border{
 	border: 1px solid #ddd;
@@ -122,7 +93,7 @@ td{
 .w-100{
 	width: 100% !important;
 }
-.new-tite{
+.new-title{
 	padding-left: 15px;
 }
 .name{
@@ -141,7 +112,9 @@ th{
 	vertical-align: top;
 }
 .show-book-edit{
-	margin-right: 50px;
+	color: #555555;
+	background-color: #5cb85c;
+
 }
 .show-book-destroy{
 	color: #555555;
@@ -149,13 +122,8 @@ th{
 }
 .action{
 	float: left;
-	margin: 0 3px;
+	margin: 10px 3px;
 	font-size: 13px;
-}
-.edit-wid{
-	width: 50%;
-	margin-right: auto;
-	margin-left: auto;
 }
 .edit-box{
 	margin: 10px 0;
@@ -167,7 +135,6 @@ th{
 .error-box{
 	padding-left: 70px;
 }
-
-
-
-
+.edit-submit{
+	margin-left: 13px;
+}

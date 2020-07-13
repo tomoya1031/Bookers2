@@ -1,96 +1,95 @@
-<div class="top">
+<div class="container">
     <% if flash[:notice] %>
 	    <div>
 	        <%= flash[:notice] %>
 	    </div>
     <% end %>
+
 <!-- 　<%= render 'books/sidebar', book: @new_book, current_use: @book.user_id %> -->
 
-    <div class="container">
-	    <div class="row">
-		    <div class="col-xs-3">
-			    <div>
-				    <h2>User info</h2>
-			    </div>
-			    <div class="img-box">
-			    	<%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100' %>
-			    </div>
-			    <table>
-				    <tbody>
-					    <tr>
-						    <td class="list">
-						    	<strong>name</strong>
-						    </td>
-						    <td class="list">
-						    	<strong><%= @book.user.name %></strong>
-						    </td>
-					    </tr>
-					    <tr>
-						    <td class="list">
-						    	<strong>introduction</strong>
-						    </td>
-						    <td class="list">
-						    	<strong><%= @book.user.introduction %></strong>
-						    </td>
-					    </tr>
-				    </tbody>
-			    </table>
-			    <div classa="btn btn-info">
-					<%= link_to edit_user_path(current_user.id) , class: "btn btn-default w-100" do %>
-					    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-					<% end %>
-			    </div>
-			    <div class="new-tite">
-				    <h2>New book</h2>
-			    </div>
-			    <%= form_for(@new_book) do |f| %>
-			        <div class="box field">
-			    	    <div>
-			    		    <%= f.label :title, "Titele" %>
-			    	    </div>
-			    	    <div>
-			    		    <%= f.text_field :title,class: "w-100" %>
-			    	    </div>
-			        </div>
-			        <div class="box">
-			    	    <div>
-			    	    	<%= f.label :title, "Opinion" %>
-			    	    </div>
-			    	    <div>
-			    	    	<%= f.text_area :body ,class: "w-100" %>
-			    	    </div>
-			        </div>
-			        <%= f.submit 'Create Book' ,class: "btn btn-primary w-100 border" %>
-			    <% end %>
+	<div class="row">
+	    <div class="col-xs-3">
+			<div>
+			    <h2>User info</h2>
 		    </div>
-		    <div class="col-xs-9">
+		    <div class="img-box">
+		    	<%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100' %>
+		    </div>
+			<table class="table">
+			    <tbody>
+				    <tr>
+						<td>
+					    	<strong>name</strong>
+					    </td>
+					    <td>
+					    	<strong><%= @book.user.name %></strong>
+					    </td>
+					</tr>
+				    <tr>
+					    <td>
+					    	<strong>introduction</strong>
+					    </td>
+					    <td>
+					    	<strong><%= @book.user.introduction %></strong>
+					    </td>
+				    </tr>
+			    </tbody>
+		    </table>
+		    <div classa="btn btn-info">
+				<%= link_to edit_user_path(current_user.id) , class: "btn btn-default w-100" do %>
+				    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+				<% end %>
+		    </div>
+		    <div class="new-title">
+			    <h2>New book</h2>
+		    </div>
+		    <%= form_for(@new_book) do |f| %>
+		        <div class="field">
+		    	    <div>
+			    	    <%= f.label :title, "Title" %>
+			   	    </div>
+			   	    <div>
+			   		    <%= f.text_field :title,class: "w-100" %>
+			   	    </div>
+		        </div>
+		        <div class="field">
+		    	    <div>
+			        	<%= f.label :title, "Opinion" %>
+			   	    </div>
+			   	    <div>
+			   	    	<%= f.text_area :body ,class: "w-100" %>
+			   	    </div>
+		        </div>
+		        <%= f.submit 'Create Book' ,class: "btn btn-primary w-100 border" %>
+		    <% end %>
+		</div>
+	    <div class="col-xs-9">
 
-                <h1>Book detail</h1>
-                <table>
-	                <tbody>
-	                    <tr class="list-back">
-		                    <td class="list">
-				                <div>
-				                    <%= link_to user_path(@book.user.id),class: "list-aitem" do %>
-				                        <%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' ,class: "show-book" %>
-					                     <%= @book.user.name %>
-				                    <% end %>
-				                <div>
+            <h2>Book detail</h2>
+            <table class="table table-hover">
+	            <tbody>
+	                <tr>
+		                <td class="list">
+			                <div>
+			                    <%= link_to user_path(@book.user.id),class: "list-aitem aitem" do %>
+			                        <%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' ,class: "show-book" %>
+				                    <%= @book.user.name %>
+				                <% end %>
+				            <div>
+			            </td>
+			            <td class="list show-book-list"><%= @book.title %></td>
+			            <td class="list show-book-list"><%= @book.body %></td>
+			            <% if @book.user == current_user %>
+		                    <td class="list show-book-list">
+		                        <%= link_to 'Edit', edit_book_path(@book), class: " btn btn-sm show-book-edit" %>
+		                    </td>
+			                <td class="list show-book-list">
+			                    <%= link_to 'Destroy', book_path(@book), method: :delete, data: {confirm:"本当に消しますか？"} ,class: " btn btn-sm show-book-destroy" %>
 			                </td>
-			                <td class="list show-book-list"><%= @book.title %></td>
-			                <td class="list show-book-list"><%= @book.body %></td>
-			                <% if @book.user == current_user %>
-			                    <td class="list show-book-list show-book-edit">
-			                        <%= link_to 'Edit', edit_book_path(@book), class: "btn btn-success" %>
-			                    </td>
-			                    <td class="list show-book-list">
-			                        <%= link_to 'Destroy', book_path(@book), method: :delete, data: {confirm:"Are you sure?"} ,class: " btn show-book-destroy" %>
-			                    </td>
-			                <% end %>
-		                </tr>
-	                </tbody>
-                </table>
-            </div>
+			            <% end %>
+		            </tr>
+	            </tbody>
+            </table>
         </div>
     </div>
 </div>

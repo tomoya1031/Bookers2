@@ -1,29 +1,28 @@
-<div class="top">
+<div class="container">
 <%= render 'books/sidebar', book: @book %>
-                <h1>Users</h1>
-                <table>
-				    <thead>
-					    <tr>
-						    <th>image</th>
-						    <th>name</th>
-						    <th></th>
-					    </tr>
-				    </thead>
-				    <% @users.each do |user| %>
-				        <tbody>
-					        <tr class="list-back">
-						        <td class="list"><%= attachment_image_tag user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %></td>
-						        <td class="list">
-							        <%= user.name %>
-						        </td>
-						        <td class="list">
-						        	<%= link_to "Show", user_path(user) ,class: "list-aitem" %>
-						        </td>
-					        </tr>
-				        </tbody>
-				    <% end %>
-			    </table>
-            </div>
+            <h2>Users</h2>
+            <table class="table table-hover">
+			    <thead>
+				    <tr>
+					    <th>image</th>
+					    <th>name</th>
+					    <th></th>
+				    </tr>
+			    </thead>
+				<% @users.each do |user| %>
+			        <tbody>
+				        <tr>
+					        <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %></td>
+						    <td>
+						        <%= user.name %>
+					        </td>
+					        <td>
+					        	<%= link_to "Show", user_path(user) ,class: "list-aitem" %>
+					        </td>
+				        </tr>
+			        </tbody>
+				<% end %>
+			</table>
         </div>
     </div>
 </div>
