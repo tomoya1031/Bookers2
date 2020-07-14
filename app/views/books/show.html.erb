@@ -5,8 +5,8 @@
 	    </div>
     <% end %>
 
-<!-- 　<%= render 'books/sidebar', book: @new_book, current_use: @book.user_id %> -->
-
+<%= render 'books/sidebar', book: @new_book, current_user: @book.user %>
+<!-- 
 	<div class="row">
 	    <div class="col-xs-3">
 			<div>
@@ -64,7 +64,7 @@
 		    <% end %>
 		</div>
 	    <div class="col-xs-9">
-
+ -->
             <h2>Book detail</h2>
             <table class="table table-hover">
 	            <tbody>

@@ -9,8 +9,8 @@
 	    </div>
 	<% end %>
 
-<!--  <%= render 'books/sidebar', book: @book  %> -->
-
+<%= render 'books/sidebar', book: @book, current_user: @user  %>
+<!-- 
 	<div class="row">
 		<div class="col-xs-3">
 			<div>
@@ -68,7 +68,7 @@
 		    <% end %>
 	    </div>
 	    <div class="col-xs-9">
-
+ -->
             <h2>Books</h2>
             <table class="table table-hover">
 	            <thead>
@@ -85,9 +85,7 @@
                		    		<%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
                		    	</td>
                		    	<td>
-               		    		<%= link_to book_path(book.id),class: "list-aitem" do %>
-            						<%= book.title %>
-            					<% end %>
+               		    		<%= link_to book.title, book_path(book.id),class: "list-aitem" %>
                 		   	</td>
 		                   	<td class="list"><%= book.body %></td>
 		                </tr>

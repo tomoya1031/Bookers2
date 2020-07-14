@@ -35,9 +35,7 @@
 						        <% end %>
 					        </td>
 					        <td>
-						        <%= link_to book_path(book.id),class: "list-aitem" do %>
-						            <%= book.title %>
-						        <% end %>
+						        <%= link_to book.title ,book_path(book.id),class: "list-aitem" %>
 					        </td>
 					        <td><%= book.body %></td>
 				        </tr>
