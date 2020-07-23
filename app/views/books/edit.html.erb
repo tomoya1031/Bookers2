@@ -12,7 +12,7 @@
                     </ul>
                 </div>
             <% end %>
-            <%= form_for(@book) do |f| %>
+            <%= form_with model: (@book) do |f| %>
                 <div>
     	            <div class="edit-box">
     		            <%= f.label :title, "Titele" %>

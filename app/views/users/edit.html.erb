@@ -10,7 +10,7 @@
             </ul>
         </div>
     <% end %>
-    <%= form_for(@user) do |f| %>
+    <%= form_with model: (@user) do |f| %>
         <div>
     	    <div class="edit-box">
     		    <%= f.label :title, "Name" %>
