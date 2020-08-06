@@ -71,6 +71,13 @@ gem 'jquery-rails'
 
 gem 'kaminari','~> 1.2.1'
 
+gem 'jp_prefecture'
+gem 'simple_form'
+
+gem "geocoder"
+
+gem 'dotenv-rails'
+
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'rspec-rails'

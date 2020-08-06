@@ -24,6 +24,22 @@
 		        <%= f.label :title, "Introduction" %>
 		        <%= f.text_area :introduction %>
 		    </div>
+            <div class="edit-box">
+                <%= f.label :title, "postcode" %>
+                <%= f.text_field :postcode %>
+            </div>
+            <div class="edit-box">
+                <%= f.label :title, "prefecture_code" %>
+                <%= f.collection_select :prefecture_name, JpPrefecture::Prefecture.all,  :name, :name, autocomplete: "prefecture_code", id: "customer_prefecture_code" %>
+            </div>
+            <div class="edit-box">
+                <%= f.label :title, "address_city" %>
+                <%= f.text_field :address_city %>
+            </div>
+            <div class="edit-box">
+                <%= f.label :title, "address_street" %>
+                <%= f.text_field :address_street %>
+            </div>
 	    </div>
 	    <%= f.submit 'Update User' %>
     <% end %>

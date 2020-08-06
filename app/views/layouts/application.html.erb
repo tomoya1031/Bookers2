@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers</title>
+    <title><%= yield(:title) %>Bookers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -53,7 +53,7 @@
               <% end %>
             </li>
             <li class="header-aitem">
-              <%= link_to new_user_registration_path,class: "aitem" do %>
+              <%= link_to new_user_registration_path, data: {"turbolinks" => false}, class: "aitem" do %>
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 <p class="header-aitem-a">sign up</p>
               <% end %>
@@ -79,5 +79,6 @@
         </div>
       </div>
     </footer>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
